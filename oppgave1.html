@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Oppgave 1. Glasset med ananasjuice (25%)</title>
+	<style>
+		/*
+			*******
+				Denne CSS-koden skal ikke endres
+			*******
+		*/
+		#glass-div{
+			width: 150px;
+			height: 350px;
+			border: 1px solid black;
+			border-top: none;
+			margin-top: 50px;
+			position: relative;
+		}		
+		#juice-div{
+			height: 50px;
+			width: 100%;
+			background-color: rgb(230, 230, 50);
+			opacity: 0.5;
+			position: absolute;
+			bottom: 0;
+			transition: height 2s;
+		}		
+		#status-p{
+			color: red;
+		}		
+	</style>
+</head>
+<body>
+		
+	<h3>Ananasjuicedrikking</h3>
+	
+	<label>Juice-mengde</label>
+	<input id="juice-amount-txt" type="text">
+		
+	<input id="pour-more-juice-btn" type="button" value="Hell i mer juice">
+	<input id="drink-juice-btn" type="button" value="Drikk juice">
+	
+	<p id="status-p">Status nå: OK</p>
+	
+	<div id="glass-div">
+		<span id="juice-level-span">50</span>
+		<div id="juice-div"></div>
+	</div>
+		
+	<script>
+
+	/* Besvarelse her */	
+
+	/*------- VARIABER-------*/
+
+		var juiceAmountTxt = document.getElementById("juice-amount-txt");
+		var pourMoreJuiceBtn = document.getElementById("pour-more-juice-btn");
+		var drinkJuiceBtn = document.getElementById("drink-juice-btn");
+		var statusP = document.getElementById("status-p");
+		var juiceLevelSpan = document.getElementById("juice-level-span");
+		var juiceDiv = document.getElementById("juice-div");
+
+	/*-------FUNKSJONER------*/
+	/*---Her skal det komme mere juice----*/
+		function moreJuice(){
+			var juiceAmountTxtVal = juiceAmountTxt.value
+			var juiceLevelSpanNum = parseInt(juiceLevelSpan.innerHTML)
+				if ( juiceAmountTxtVal >= juiceLevelSpanNum && juiceAmountTxtVal <= 349 ){
+					juiceDiv.style.height = `${juiceAmountTxtVal}px`
+					juiceLevelSpan.innerHTML = juiceAmountTxtVal
+				}else if(juiceAmountTxtVal >= 350 ) {
+					juiceDiv.style.height = `350px`
+					statusP.innerHTML = "Glasset er fult."
+					juiceLevelSpan.innerHTML = 350
+				};
+		};
+
+	/*------Her skal det bli mindre----*/
+		function lessJuice(){
+			var juiceAmountTxtVal = juiceAmountTxt.value
+			var juiceLevelSpanNum = parseInt(juiceLevelSpan.innerHTML)
+				if (juiceAmountTxtVal <= juiceLevelSpanNum && juiceAmountTxtVal >= 1 ){
+					juiceDiv.style.height = `${juiceAmountTxtVal}px`
+					juiceLevelSpan.innerHTML = juiceAmountTxtVal
+				}else if(juiceAmountTxtVal <= 0){
+					juiceDiv.style.height = `0px`
+					statusP.innerHTML = "Glasset er tomt."
+					juiceLevelSpan.innerHTML = 0
+				}
+		};
+
+
+	/*-------EVENT--------*/
+		pourMoreJuiceBtn.onclick = moreJuice;
+		drinkJuiceBtn.onclick = lessJuice;
+
+
+
+	</script>
+	
+</body>
+</html>

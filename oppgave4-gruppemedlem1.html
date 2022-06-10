@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Oppgave 4.1</title>
+</head>
+<body>
+
+	<div id="img-div">
+	<img id="img-merkur" src="images/Merkur.jpg" width="300px" height="200px">
+	<img id="img-venus" src="images/venus.jpg" width="300px" height="200px">
+	<img id="img-jorden" src="images/jorda.jpg" width="300px" height="200px">
+	<img id="img-mars" src="images/mars.jpg" width="300px" height="200px">
+	</div>
+	<div id="output-div">
+	</div>
+
+	<div id="spill-div" >
+		<button id="venus-btn">Venus</button>
+		<button id="mars-btn">Mars</button>
+		<button id="merkur-btn">Merkur</button>
+		<button id="jorden-btn">Jorden</button>
+		<p id="p-input" >Hvem er den Fjerde planeten i solsystemet? </p>
+		<p id="p-input-to">Hvem er den første planeten i solsytemet?</p>
+		<p id="p-input-tre">Hvem er den tredje planeten i solsystemet?</p>
+		<p id="p-input-fire">poeng <span id="point"></span> </p>
+	</div>
+
+	<script>
+
+	/*------ VARIABLER ------*/
+
+		var imgMerkur = document.getElementById("img-merkur");
+		var imgVenus = document.getElementById("img-venus");
+		var imgJorden = document.getElementById("img-jorden");
+		var imgMars = document.getElementById("img-mars");
+
+		var outputDiv = document.getElementById("output-div");
+		var outputDivEmpty = outputDiv.innerHTML = "";
+
+		var venusBtn = document.getElementById("venus-btn");
+		var marsBtn = document.getElementById("mars-btn");
+		var merkurBtn = document.getElementById("merkur-btn");
+		var jordaBtn = document.getElementById("jorden-btn");
+	
+	/*---Spill----*/
+
+		var point = document.getElementById("point")
+		var count = 0;
+
+	/*------FUNKSJONER-----*/
+	/*---Vise og fjærne tekst med å trykke på bilde---*/
+
+		function showInfo(name, color, info ){	
+			if( outputDiv.innerHTML === ""){
+					outputDiv.innerHTML =
+						`<article>
+						<p>Navn: ${name}</p>
+						<p>Farge: ${color}</p>
+						<p>Info: ${info}</p>
+						</article>`
+			}else if (outputDiv.innerHTML === `<article>
+						<p>Navn: ${name}</p>
+						<p>Farge: ${color}</p>
+						<p>Info: ${info}</p>
+						</article>`){
+					outputDiv.innerHTML = ""
+			}
+		};
+
+	/*------EVENT-----*/
+	
+	imgMerkur.onclick = function() {
+		showInfo("Merkur","Gray","Du kommer til å dø, hvis du drar hit! 0/10 IKKE anbefalt!")
+						};
+
+	imgVenus.onclick = 	function(){
+		showInfo("Venus","orangsje","Perfekt sted for å bli brun. Varmt og godt, 9/10 for de som liker syden følelse.")
+						};
+
+	imgJorden.onclick = function(){
+		showInfo("Jorden","Blå og Grønn", "Uff Mennesker bor her, UNGÅ PÅ DET STERKESTE. -10 Epler/7 Bananer")
+						};
+
+	imgMars.onclick = 	function(){
+		showInfo("Mars","Brun","Beste trampoline land noen gang! 7/10, servicen var litt skuffende")
+						};
+
+ /*------ SPILL -------*/
+	marsBtn.onclick = function(){
+		count++
+		point.innerHTML = count
+	};
+
+	merkurBtn.onclick = function(){
+		count++
+		point.innerHTML = count
+	};
+
+	jordaBtn.onclick = function(){
+		count++
+		point.innerHTML = count
+	};
+	
+/* Beklager dårlig spill, hadde ikke hjærne kraft igjen.*/
+
+	
+	</script>
+ 
+
+	
+</body>
+</html>

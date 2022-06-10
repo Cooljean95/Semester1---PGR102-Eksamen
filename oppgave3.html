@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Oppgave 3. Matlageret (25%)</title>
+</head>
+<body>
+
+	<h3>Matlageret</h3>
+	<label>Produktnavn</label>
+	<input id="produkt-txt" type="text"><br>
+	<label>Antall på lager</label>
+	<input id="antall-txt" type="text"><br>
+	<input id="add-btn" type="button" value="Legg til produkt i array">
+	<input id="vis-btn" type="button" value="Vis produkter du har lagt til">
+	<div id="output-div"> </div>
+	
+	<script>	
+
+	/*----- VARIABLER -----*/
+		
+		var produktTxt = document.getElementById("produkt-txt");
+		var antallTxt = document.getElementById("antall-txt");
+		var addBtn = document.getElementById("add-btn");
+		var visBtn = document.getElementById("vis-btn");
+		var outputDiv = document.getElementById("output-div");
+
+		var varerArray = []
+
+	/*----FUNKSJONER ----*/
+
+		function addArray (){
+			var matArray = {
+				name: produktTxt.value,   
+				amount:parseInt( antallTxt.value)
+			}
+			varerArray.push(matArray);
+			console.log(varerArray);
+		};
+
+
+	/* Besvarelse legges til før og/eller etter funksjonen */
+
+		function sortByAmount(a, b){
+	
+		  if (a.amount < b.amount) {
+			return 1;
+		  }
+		  if (a.amount > b.amount) {
+			return -1;
+		  }
+		  return 0;
+		};
+
+		function sortervarer(){	
+			outputDiv.innerHTML = ""
+			varerArray.sort(sortByAmount)
+				for(var i = 0; i < varerArray.length; i++){
+					outputDiv.innerHTML += varerArray[i].name + ", " + varerArray[i].amount + "</br>"; 
+				}
+		};
+		
+
+	/*---- EVENT ------*/
+
+		addBtn.onclick = addArray;
+		visBtn.onclick = sortervarer;
+
+	</script>
+</body>
+</html>
+
+
