@@ -1,5 +1,5 @@
-# Semester 1  PGR102-Eksamen
+# Semester 1  Introduksjon til programering
 
 Min første javascript eksamen
 
-GODSKJENT
+Karakter: GODSKJENT
