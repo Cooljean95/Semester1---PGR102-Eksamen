@@ -2,4 +2,4 @@
 
 Min første javascript eksamen
 
-oppgaave 2 funker på engelsk. 
+GODSKJENT
