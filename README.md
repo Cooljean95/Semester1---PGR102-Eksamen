@@ -2,4 +2,4 @@
 
 Min første javascript eksamen
 
-Karakter: GODSKJENT
+Karakter: GODKJENT
